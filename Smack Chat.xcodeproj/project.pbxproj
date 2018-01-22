@@ -15,6 +15,7 @@
 		DF26B5E52007F1D5001ADFA3 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF26B5E42007F1D5001ADFA3 /* ChatsVC.swift */; };
 		DF26B5E72007F1E6001ADFA3 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF26B5E62007F1E6001ADFA3 /* ChannelVC.swift */; };
 		DF26B5E920083045001ADFA3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF26B5DF2007DD12001ADFA3 /* SWRevealViewController.m */; };
+		DF5A2845200BDFC400CB031B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A2844200BDFC400CB031B /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		DF26B5E02007DD12001ADFA3 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DF26B5E42007F1D5001ADFA3 /* ChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
 		DF26B5E62007F1E6001ADFA3 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		DF5A2844200BDFC400CB031B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F23FCAD10D1CD43BCAB4470C /* Pods-Smack Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack Chat/Pods-Smack Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 		DF26B5E22007F1AE001ADFA3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DF5A2844200BDFC400CB031B /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				DF26B5E920083045001ADFA3 /* SWRevealViewController.m in Sources */,
 				DF26B5E52007F1D5001ADFA3 /* ChatsVC.swift in Sources */,
+				DF5A2845200BDFC400CB031B /* GradientView.swift in Sources */,
 				DF26B5E72007F1E6001ADFA3 /* ChannelVC.swift in Sources */,
 				DF26B5CC2007D0A6001ADFA3 /* AppDelegate.swift in Sources */,
 			);
