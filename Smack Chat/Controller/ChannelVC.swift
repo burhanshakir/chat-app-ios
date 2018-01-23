@@ -9,7 +9,10 @@
 import UIKit
 
 class ChannelVC: UIViewController {
-
+    
+    
+    @IBOutlet weak var loginButton: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,5 +20,10 @@ class ChannelVC: UIViewController {
         
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+            performSegue(withIdentifier: TO_LOGIN, sender: nil)
+    }
+    
 
 }
