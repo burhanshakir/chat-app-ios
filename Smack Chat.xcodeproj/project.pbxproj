@@ -18,6 +18,8 @@
 		DF562BF32016AC7800D144C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF562BF22016AC7800D144C4 /* Constants.swift */; };
 		DF562BF52016B54D00D144C4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF562BF42016B54D00D144C4 /* LoginVC.swift */; };
 		DF5A2845200BDFC400CB031B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A2844200BDFC400CB031B /* GradientView.swift */; };
+		DFBE5EED2019499D00541232 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBE5EEC2019499D00541232 /* CreateAccountVC.swift */; };
+		DFBE5EF0201949DC00541232 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBE5EEF201949DC00541232 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		DF562BF22016AC7800D144C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DF562BF42016B54D00D144C4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		DF5A2844200BDFC400CB031B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DFBE5EEC2019499D00541232 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		DFBE5EEF201949DC00541232 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F23FCAD10D1CD43BCAB4470C /* Pods-Smack Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack Chat/Pods-Smack Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,7 @@
 		DF26B5CA2007D0A6001ADFA3 /* Smack Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DFBE5EEE201949C100541232 /* Services */,
 				DF562BF12016AC6000D144C4 /* Utilities */,
 				DF26B5E32007F1B4001ADFA3 /* Controller */,
 				DF26B5E22007F1AE001ADFA3 /* View */,
@@ -126,6 +131,7 @@
 				DF26B5E42007F1D5001ADFA3 /* ChatsVC.swift */,
 				DF26B5E62007F1E6001ADFA3 /* ChannelVC.swift */,
 				DF562BF42016B54D00D144C4 /* LoginVC.swift */,
+				DFBE5EEC2019499D00541232 /* CreateAccountVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,6 +142,14 @@
 				DF562BF22016AC7800D144C4 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DFBE5EEE201949C100541232 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DFBE5EEF201949DC00541232 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E5315FB8BBB4898C57714198 /* Pods */ = {
@@ -273,6 +287,8 @@
 			files = (
 				DF26B5E920083045001ADFA3 /* SWRevealViewController.m in Sources */,
 				DF26B5E52007F1D5001ADFA3 /* ChatsVC.swift in Sources */,
+				DFBE5EED2019499D00541232 /* CreateAccountVC.swift in Sources */,
+				DFBE5EF0201949DC00541232 /* AuthService.swift in Sources */,
 				DF562BF52016B54D00D144C4 /* LoginVC.swift in Sources */,
 				DF5A2845200BDFC400CB031B /* GradientView.swift in Sources */,
 				DF26B5E72007F1E6001ADFA3 /* ChannelVC.swift in Sources */,
