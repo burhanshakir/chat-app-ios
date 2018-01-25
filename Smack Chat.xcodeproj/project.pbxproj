@@ -20,6 +20,7 @@
 		DF5A2845200BDFC400CB031B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A2844200BDFC400CB031B /* GradientView.swift */; };
 		DFBE5EED2019499D00541232 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBE5EEC2019499D00541232 /* CreateAccountVC.swift */; };
 		DFBE5EF0201949DC00541232 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBE5EEF201949DC00541232 /* AuthService.swift */; };
+		DFDD470F201A82B000EB7D6F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD470E201A82B000EB7D6F /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		DF5A2844200BDFC400CB031B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DFBE5EEC2019499D00541232 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		DFBE5EEF201949DC00541232 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DFDD470E201A82B000EB7D6F /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		F23FCAD10D1CD43BCAB4470C /* Pods-Smack Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack Chat/Pods-Smack Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DF5A2844200BDFC400CB031B /* GradientView.swift */,
+				DFDD470E201A82B000EB7D6F /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF26B5E920083045001ADFA3 /* SWRevealViewController.m in Sources */,
+				DFDD470F201A82B000EB7D6F /* RoundedButton.swift in Sources */,
 				DF26B5E52007F1D5001ADFA3 /* ChatsVC.swift in Sources */,
 				DFBE5EED2019499D00541232 /* CreateAccountVC.swift in Sources */,
 				DFBE5EF0201949DC00541232 /* AuthService.swift in Sources */,
