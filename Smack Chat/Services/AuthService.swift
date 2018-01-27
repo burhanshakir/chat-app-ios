@@ -45,6 +45,8 @@ class AuthService{
         }
     }
     
+    
+    
     func registerUser(email:String, password:String,completion:@escaping CompletionHandler){
         let lowercaseEmail = email.lowercased()
         
@@ -64,6 +66,8 @@ class AuthService{
             }
         }
     }
+    
+    
     
     func loginUser(email:String, password:String,completion:@escaping CompletionHandler){
         let lowercaseEmail = email.lowercased()
@@ -85,6 +89,47 @@ class AuthService{
                 self.authToken = json["token"].stringValue
                 
                 self.isLoggedIn = true
+                
+                completion(true)
+            }
+            else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func createUser(email:String, avatarName:String,name:String,color:String,completion:@escaping CompletionHandler){
+        let lowercaseEmail = email.lowercased()
+        
+        let body:[String: Any] = [
+            "name": name,
+            "email" : lowercaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": color
+            
+        ]
+        
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type" : "application/json; charset=utf-8"
+        ]
+        
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+            
+            if response.result.error == nil{
+                
+                guard let data = response.data else {return}
+                
+                let json = JSON(data:data)
+                
+                let id = json["_id"].stringValue
+                let color = json["avatarColor"].stringValue
+                let avatarName = json["avatarName"].stringValue
+                let email = json["email"].stringValue
+                let name = json["name"].stringValue
+                
+                UserDataService.instance.setUserData(id: id, avatarName: avatarName, color: color, name: name, email: email)
                 
                 completion(true)
             }
