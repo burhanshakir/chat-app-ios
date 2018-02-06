@@ -88,17 +88,80 @@
                                     <action selector="sendMsgPress:" destination="Tvc-Cw-ryA" eventType="touchUpInside" id="uPX-Zy-gUo"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ypj-aS-LDy">
+                                <rect key="frame" x="0.0" y="82" width="375" height="505"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="80" id="1Qf-UB-Pgl" customClass="MessageCell" customModule="Smack_Chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Qf-UB-Pgl" id="bhs-8f-nwk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-LT-5FO" customClass="CircleImage" customModule="Smack_Chat" customModuleProvider="target">
+                                                    <rect key="frame" x="12" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="cmg-RK-sZg"/>
+                                                        <constraint firstAttribute="height" constant="50" id="jqd-Dq-aFu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burhan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-fS-RBe">
+                                                    <rect key="frame" x="74" y="0.0" width="66" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Message Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaa-6I-30X">
+                                                    <rect key="frame" x="74" y="30" width="271" height="24"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:33 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5J-bV-F4r">
+                                                    <rect key="frame" x="152" y="2.5" width="55.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vPE-fS-RBe" firstAttribute="top" secondItem="fYO-LT-5FO" secondAttribute="top" id="9tT-3s-eeg"/>
+                                                <constraint firstItem="Qaa-6I-30X" firstAttribute="top" secondItem="vPE-fS-RBe" secondAttribute="bottom" constant="8" id="FjU-Qb-WDI"/>
+                                                <constraint firstItem="W5J-bV-F4r" firstAttribute="centerY" secondItem="vPE-fS-RBe" secondAttribute="centerY" id="IEI-D8-IZb"/>
+                                                <constraint firstItem="fYO-LT-5FO" firstAttribute="leading" secondItem="bhs-8f-nwk" secondAttribute="leading" constant="12" id="LJx-De-ENN"/>
+                                                <constraint firstItem="Qaa-6I-30X" firstAttribute="leading" secondItem="fYO-LT-5FO" secondAttribute="trailing" constant="12" id="Tvp-Cm-CGu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Qaa-6I-30X" secondAttribute="bottom" constant="15" id="Uyl-vg-gUe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qaa-6I-30X" secondAttribute="trailing" constant="15" id="bOh-kz-nfa"/>
+                                                <constraint firstItem="vPE-fS-RBe" firstAttribute="leading" secondItem="fYO-LT-5FO" secondAttribute="trailing" constant="12" id="klW-FX-fkI"/>
+                                                <constraint firstItem="W5J-bV-F4r" firstAttribute="leading" secondItem="vPE-fS-RBe" secondAttribute="trailing" constant="12" id="pxx-Ad-XEd"/>
+                                                <constraint firstItem="fYO-LT-5FO" firstAttribute="top" secondItem="bhs-8f-nwk" secondAttribute="top" id="shR-00-Yu3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLbl" destination="Qaa-6I-30X" id="jeN-Gu-tO7"/>
+                                            <outlet property="nameLbl" destination="vPE-fS-RBe" id="uvA-pS-Kcz"/>
+                                            <outlet property="timeLbl" destination="W5J-bV-F4r" id="R5F-l2-8qT"/>
+                                            <outlet property="userImage" destination="fYO-LT-5FO" id="2QK-Sy-Vb9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ypj-aS-LDy" firstAttribute="top" secondItem="jHT-Yn-JBt" secondAttribute="bottom" constant="12" id="D2H-zB-ohX"/>
                             <constraint firstItem="jHT-Yn-JBt" firstAttribute="trailing" secondItem="B5g-vJ-Hxg" secondAttribute="trailing" id="ENw-4t-jV7"/>
                             <constraint firstItem="jHT-Yn-JBt" firstAttribute="leading" secondItem="B5g-vJ-Hxg" secondAttribute="leading" id="GSF-KJ-HLy"/>
                             <constraint firstItem="jHT-Yn-JBt" firstAttribute="top" secondItem="JF1-Hw-M90" secondAttribute="top" id="Lcy-v9-cwL"/>
                             <constraint firstItem="B5g-vJ-Hxg" firstAttribute="trailing" secondItem="8EV-P2-TDs" secondAttribute="trailing" id="Oer-1Q-cpL"/>
+                            <constraint firstItem="B5g-vJ-Hxg" firstAttribute="trailing" secondItem="ypj-aS-LDy" secondAttribute="trailing" id="SAn-Lc-vfj"/>
+                            <constraint firstItem="ypj-aS-LDy" firstAttribute="leading" secondItem="B5g-vJ-Hxg" secondAttribute="leading" id="VAT-WQ-Lnw"/>
                             <constraint firstItem="B5g-vJ-Hxg" firstAttribute="trailing" secondItem="8Bl-eO-IGQ" secondAttribute="trailing" constant="8" id="Z7J-dh-00u"/>
                             <constraint firstItem="8Bl-eO-IGQ" firstAttribute="centerY" secondItem="8EV-P2-TDs" secondAttribute="centerY" id="cDa-jS-Tgz"/>
                             <constraint firstItem="8EV-P2-TDs" firstAttribute="leading" secondItem="B5g-vJ-Hxg" secondAttribute="leading" id="egX-ES-KCF"/>
                             <constraint firstItem="8EV-P2-TDs" firstAttribute="bottom" secondItem="B5g-vJ-Hxg" secondAttribute="bottom" id="r2Z-7d-ITm"/>
+                            <constraint firstItem="8EV-P2-TDs" firstAttribute="top" secondItem="ypj-aS-LDy" secondAttribute="bottom" constant="30" id="rRC-rp-z0s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B5g-vJ-Hxg"/>
                     </view>
@@ -106,6 +169,7 @@
                         <outlet property="burgerBtn" destination="eN3-18-dz3" id="L8i-Qh-oJB"/>
                         <outlet property="channelNameLbl" destination="jZh-Ph-UB0" id="aAr-NJ-DdM"/>
                         <outlet property="msgTxtBox" destination="8EV-P2-TDs" id="PRz-Rm-8kC"/>
+                        <outlet property="tableView" destination="ypj-aS-LDy" id="kz6-IE-rlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rt-ae-YSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
