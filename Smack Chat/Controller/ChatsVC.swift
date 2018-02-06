@@ -10,17 +10,27 @@ import UIKit
 
 class ChatsVC: UIViewController {
 
+    @IBOutlet weak var msgTxtBox: UITextField!
     @IBOutlet weak var burgerBtn: UIButton!
+    @IBOutlet weak var channelNameLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.bindToKeyboard()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatsVC.handleTap))
+        
+        view.addGestureRecognizer(tap)
         
         burgerBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatsVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatsVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
         
         if AuthService.instance.isLoggedIn
         {
@@ -30,10 +40,74 @@ class ChatsVC: UIViewController {
                 }
             })
         }
-        
-        MessageService.instance.findAllChannels { (success) in
-
+    }
+    
+    @objc func userDataDidChange(_ notif: Notification )
+    {
+        if AuthService.instance.isLoggedIn{
+            
+            onLoginGetMessages()
         }
+        else{
+            channelNameLbl.text = "Please Log In"
+        }
+    }
+    
+    @objc func handleTap(){
+        view.endEditing(true)
+    }
+    
+    @objc func channelSelected(_ notif: Notification )
+    {
+        updateWithChannel()
+    }
+    
+    func updateWithChannel(){
+        let name = MessageService.instance.selectedChannel?.channelTitle ?? ""
+        channelNameLbl.text = name
+        getMessages()
+    }
+    
+    
+    @IBAction func sendMsgPress(_ sender: Any) {
+        
+        if AuthService.instance.isLoggedIn{
+            guard let id = MessageService.instance.selectedChannel?.id else { return }
+            guard let message = msgTxtBox.text else { return }
+            
+            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: id, completion: { (success) in
+                if success{
+                    self.msgTxtBox.text = ""
+                    self.msgTxtBox.resignFirstResponder()
+                }
+            })
+        }
+        
+    }
+    
+    
+    func onLoginGetMessages(){
+        MessageService.instance.findAllChannels { (success) in
+            if success{
+                
+                if MessageService.instance.channels.count > 0{
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    
+                    self.updateWithChannel()
+                }
+                else{
+                    self.channelNameLbl.text = "No Channels"
+                }
+            }
+        }
+    }
+    
+    func getMessages(){
+        
+        guard let id = MessageService.instance.selectedChannel?.id else { return }
+        MessageService.instance.findAllMessagesForChannel(channelId: id, completion: { (success) in
+            
+        })
         
     }
 
