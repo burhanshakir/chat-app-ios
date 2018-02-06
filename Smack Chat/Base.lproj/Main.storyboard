@@ -80,6 +80,9 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="msgBoxEdit:" destination="Tvc-Cw-ryA" eventType="editingChanged" id="a6w-Qo-9ra"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bl-eO-IGQ">
                                 <rect key="frame" x="337" y="627" width="30" height="30"/>
@@ -147,6 +150,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldp-Oe-YBm">
+                                <rect key="frame" x="8" y="610" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -162,6 +171,8 @@
                             <constraint firstItem="8EV-P2-TDs" firstAttribute="leading" secondItem="B5g-vJ-Hxg" secondAttribute="leading" id="egX-ES-KCF"/>
                             <constraint firstItem="8EV-P2-TDs" firstAttribute="bottom" secondItem="B5g-vJ-Hxg" secondAttribute="bottom" id="r2Z-7d-ITm"/>
                             <constraint firstItem="8EV-P2-TDs" firstAttribute="top" secondItem="ypj-aS-LDy" secondAttribute="bottom" constant="30" id="rRC-rp-z0s"/>
+                            <constraint firstItem="8EV-P2-TDs" firstAttribute="top" secondItem="ldp-Oe-YBm" secondAttribute="bottom" constant="7" id="vYK-bZ-Xxj"/>
+                            <constraint firstItem="ldp-Oe-YBm" firstAttribute="leading" secondItem="B5g-vJ-Hxg" secondAttribute="leading" constant="8" id="xOE-2y-bwq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B5g-vJ-Hxg"/>
                     </view>
@@ -169,7 +180,9 @@
                         <outlet property="burgerBtn" destination="eN3-18-dz3" id="L8i-Qh-oJB"/>
                         <outlet property="channelNameLbl" destination="jZh-Ph-UB0" id="aAr-NJ-DdM"/>
                         <outlet property="msgTxtBox" destination="8EV-P2-TDs" id="PRz-Rm-8kC"/>
+                        <outlet property="sendBtn" destination="8Bl-eO-IGQ" id="Jeb-3e-iBu"/>
                         <outlet property="tableView" destination="ypj-aS-LDy" id="kz6-IE-rlU"/>
+                        <outlet property="typingLbl" destination="ldp-Oe-YBm" id="eWB-yW-4jd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rt-ae-YSz" userLabel="First Responder" sceneMemberID="firstResponder"/>

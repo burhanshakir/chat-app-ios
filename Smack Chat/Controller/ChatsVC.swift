@@ -14,6 +14,10 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var burgerBtn: UIButton!
     @IBOutlet weak var channelNameLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendBtn: UIButton!
+    
+    @IBOutlet weak var typingLbl: UILabel!
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,8 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatsVC.handleTap))
         
         view.addGestureRecognizer(tap)
+        
+        sendBtn.isHidden = true
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,6 +52,60 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             })
         }
+        
+//        SocketService.instance.getChatMessage(completion: { (success) in
+//            if success{
+//                self.tableView.reloadData()
+//            }
+//
+//        })
+        
+        SocketService.instance.getChatMessage { (newMsg) in
+            if newMsg.channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn{
+                MessageService.instance.messages.append(newMsg)
+                self.tableView.reloadData()
+                
+                if MessageService.instance.messages.count > 0{
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count-1 , section: 0)
+                    
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
+            }
+        }
+        
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else {return }
+            var names = ""
+            var numOfTypers = 0
+            
+            for(typingUser, channel) in typingUsers{
+                if typingUser != UserDataService.instance.name && channel == channelId
+                {
+                    if names == ""{
+                        names = typingUser
+                    }else{
+                        names = "\(names),\(typingUser)"
+                    }
+                    
+                    numOfTypers += 1
+                
+                }
+            }
+            
+            if numOfTypers > 0 && AuthService.instance.isLoggedIn{
+                var verb = "is"
+                
+                if numOfTypers > 1 {
+                    verb = "are"
+                }
+                
+                self.typingLbl.text = "\(names) \(verb) typing a message"
+            }else{
+                self.typingLbl.text = ""
+            }
+            
+            
+        }
     }
     
     @objc func userDataDidChange(_ notif: Notification )
@@ -56,6 +116,7 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else{
             channelNameLbl.text = "Please Log In"
+            tableView.reloadData()
         }
     }
     
@@ -91,6 +152,24 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    @IBAction func msgBoxEdit(_ sender: Any) {
+        
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        
+        if msgTxtBox.text == ""{
+            isTyping = false
+            sendBtn.isHidden = true
+            
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
+        }else{
+            if isTyping == false{
+                sendBtn.isHidden = false
+                
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
+            }
+            isTyping = true
+        }
+    }
     
     func onLoginGetMessages(){
         MessageService.instance.findAllChannels { (success) in
@@ -115,6 +194,12 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             if success{
                 self.tableView.reloadData()
+                
+                if MessageService.instance.messages.count > 0{
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
             }
         })
         
@@ -137,6 +222,7 @@ class ChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     
 
 

@@ -16,6 +16,7 @@ class MessageService
     
     var channels = [Channel]()
     var messages = [Message]()
+    var unreadMsgs = [String]()
     var selectedChannel : Channel?
     
     func findAllChannels(completion: @escaping CompletionHandler)
@@ -93,5 +94,9 @@ class MessageService
     
     func clearChannels(){
         channels.removeAll()
+    }
+    
+    func clearMessages(){
+        messages.removeAll()
     }
 }
