@@ -1,6 +1,6 @@
 # chat-app-ios
 
-![alt text](http://thescorekeeper.tk/smack/login.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/login.png)
 
 ![alt text](http://thescorekeeper.tk/smack/create.png)
 
