@@ -2,14 +2,14 @@
 
 ![alt text](http://thescorekeeper.gwiddle.co.uk/smack/login.png)
 
-![alt text](http://thescorekeeper.tk/smack/create.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/create.png)
 
-![alt text](http://thescorekeeper.tk/smack/avtrL.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/avtrL.png)
 
-![alt text](http://thescorekeeper.tk/smack/avtrD.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/avtrD.png)
 
-![alt text](http://thescorekeeper.tk/smack/chats.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/chats.png)
 
-![alt text](http://thescorekeeper.tk/smack/channels.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/channels.png)
 
-![alt text](http://thescorekeeper.tk/smack/createChannel.png)
+![alt text](http://thescorekeeper.gwiddle.co.uk/smack/createChannel.png)
